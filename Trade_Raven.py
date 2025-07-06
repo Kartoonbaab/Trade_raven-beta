@@ -290,7 +290,7 @@ async def fetch_and_announce_trades(week_override=None):
         if tid in known_trade_ids:
             continue
 
-        adds = txn.get("adds", or {})
+        adds = txn.get("adds") or {}
         reverse = {}
         for pid, rid in adds.items():
             reverse.setdefault(rid, []).append(pid)
